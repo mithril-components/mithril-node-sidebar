@@ -1,8 +1,8 @@
 {
-    "name": "node-component-boilerplate",
+    "name": "mithril-node-sidebar",
     "version": "1.0.0",
     "description": "",
-    "main": "componentname.js",
+    "main": "sidebar.js",
     "dependencies": {
         "mithril": "^0.2.0"
     },
@@ -11,14 +11,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/mithril-components/node-component-boilerplate.git"
+        "url": "git+https://github.com/mithril-components/mithril-node-sidebar.git"
     },
     "keywords": [
         "mithril",
-        "nodejs"
+        "nodejs",
+        "sidebar"
     ],
     "bugs": {
-        "url": "https://github.com/mithril-components/mithril-component-boilerplate/issues"
+        "url": "https://github.com/mithril-components/mithril-node-sidebar/issues"
     },
-    "homepage": "https://github.com/mithril-components/mithril-component-boilerplate#readme"
+    "homepage": "https://github.com/mithril-components/mithril-node-sidebar#readme"
 }

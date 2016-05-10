@@ -1,21 +1,55 @@
-node-mithril-component-boilerplate
+node-mithril-sidebar
 ==================================
-
-TODO: Description
+Slider component for Mitrhil-NodeJS.
 
 Usage
-=====
-
-TODO: Usage
+-----
+    
+    const model = {
+        title: 'Web site title',
+        logo: 'icon-class-name',
+        menus: [
+            {
+                label: 'Menu 1',
+                status: '10',
+                icon: 'menu1-icon-class',
+                href: '/some/url'
+                submenu: [
+                    {
+                        label: 'Menu 1',
+                        icon: 'menu1-icon-class',
+                        href: '/some/url/of/a/page'
+                    },
+                    ...    
+                ]
+            },
+            {
+                label: 'Menu 2',
+                icon: 'menu2-icon-class',
+                href: 'Some other url'
+            }
+            ...
+        ]
+    }
 
 Options
-=======
+-------
 
-TODO: Options
+* title: Title of the website.
+* logo: CSS class name for logo.
+* menus: List of menus.
+  * label: Label for the menu.
+  * status: Status box text.
+  * icon: CSS class name for menu icon.
+  * href: Link for the menu.
+  * submenu: List of sub menus.
+    * label: Label of the submenu
+    * icon: CSS class name for the icon.
+    * href: Link for the submenu.
 
 Test
-====
+----
+Setup [mithril-component-tools](https://github.com/mithril-components/mitthril-components-tools) first. Then:
 
-TODO: How to test
-
-
+    npm install
+    mct test piechart.js en
