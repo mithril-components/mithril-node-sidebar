@@ -5,6 +5,8 @@ Slider component for Mitrhil-NodeJS.
 Usage
 -----
     
+    const sidebar = require('mithril-node-sidebar');
+
     const model = {
         title: 'Web site title',
         logo: 'icon-class-name',
@@ -31,6 +33,8 @@ Usage
             ...
         ]
     }
+    const ctrl = sidebar.controller(model);
+    const view = sidebar.view(ctrl);
 
 Options
 -------
