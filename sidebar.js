@@ -2,7 +2,7 @@
 
 const m = require('mithril');
 
-const conttoller = (options) => {
+const controller = (options) => {
     let modelPromise;
     if (typeof options.model === 'string') {
         if (model.match(/^https?:\/\//)) {
