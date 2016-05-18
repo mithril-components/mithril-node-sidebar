@@ -60,4 +60,4 @@ Test
 Setup [mithril-component-tools](https://github.com/mithril-components/mitthril-components-tools) first. Then:
 
     npm install
-    mct test piechart.js en
+    mct test sidebar.js en
