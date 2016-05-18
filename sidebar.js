@@ -42,18 +42,27 @@ const controller = (options) => {
 
     const icCtrl = options.inner.controller();
     // This component supports both sync and async controller
-    const icPromise = (typeof icCtrl === 'Promise') ? : contentCtrl : Promise.resolve(icCtrl);
+    const icPromise = (typeof icCtrl === 'Promise') ? contentCtrl : Promise.resolve(icCtrl);
 
     // TODO: Complete the controller object
     return Promise.all([modelPromise, icPromise]).then(values => {
-        model: value[0],        // modelPromise
-        contentCtrl: values[1], // icPromise
-        contentView: content.view
+        return {
+            contentCtrl: values[1], // icPromise
+            contentView: options.inner.view,
+
+            model: values[0],        // modelPromise
+         }
+
     });
 }
 
 const view = (ctrl) => {
-    // TODO: Implement
+    return m('div.row', [
+        m('div.col-md-3', {style: 'background-color: black; color: white'}, JSON.stringify(ctrl.model)),
+        m('div.col-md-9',
+            ctrl.contentView(ctrl.contentCtrl)
+        )
+    ]);
 }
 
 module.exports = {
