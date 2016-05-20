@@ -1,8 +1,8 @@
 'use strict'
 
 const m = require('mithril');
-const menu = require('./mithril_components/menu.js');
-const menulist = require('./mithril_components/menulist');
+const menu = require('./mithril_components/menu/menu');
+const menulist = require('./mithril_components/menulist/menulist');
 
 
 const controller = (options) => {
@@ -42,12 +42,7 @@ const controller = (options) => {
     else {
         modelPromise = Promise.resolve(options.model);
     }
-    options.inner = {
-        controller : function (){
-            return 'Promise'
-        }
-
-    }
+ 
 
     const icCtrl = options.inner.controller();
     // This component supports both sync and async controller
