@@ -10,7 +10,7 @@ const model = {
             label: 'Menu 1',
             status: '10',
             icon: 'menu1-icon-class',
-            href: '/some/url'
+            href: '/some/url',
             submenu: [
                 {
                     label: 'Menu 1',
@@ -27,7 +27,9 @@ const model = {
     ]
 }
 
-const ctrl = component.controller(data);
+
+
+const ctrl = component.controller(model);
 const view = component.view(ctrl);
 const innerHtml = render(view);
 console.log(innerHtml);

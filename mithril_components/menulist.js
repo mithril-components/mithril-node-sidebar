@@ -1,0 +1,23 @@
+'use strict'
+
+const m = require('mithril');
+const menu = require('./menu');
+
+const controller = (data) => {  // data is list of menu
+    console.log(data);
+    return data.map(d => {
+        return menu.controller(d);
+    });
+}
+
+const view = (ctrl) => {
+	console.log(ctrl);
+    return ctrl.map(menuCtrl => {
+        return m("li",menu.view(menuCtrl));
+    });
+}
+
+module.exports = {
+    controller: controller,
+    view: view
+}
