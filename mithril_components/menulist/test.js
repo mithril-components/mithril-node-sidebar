@@ -26,9 +26,7 @@ const model = [
     }
 ]
 const ctrl = menulist.controller(model);
-
 const view = menulist.view(ctrl);
-
 const innerHtml = render(view);
 
 console.log(innerHtml);

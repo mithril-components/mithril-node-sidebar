@@ -1,5 +1,8 @@
 'use strict'
 
+const m = require('mithril');
+const render = require('mithril-node-render');
+
 const component = require('./sidebar');
 
 const model = {
@@ -39,8 +42,12 @@ const model = {
 }
 
 
-
-const ctrl = component.controller(model);
-const view = component.view(ctrl);
-const innerHtml = render(view);
-console.log(innerHtml);
+component.controller(model).then(ctrl => {
+console.log('here');
+    const view = component.view(ctrl);
+    const innerHtml = render(view);
+    console.log(innerHtml);
+})
+.catch(err => {
+    console.trace(err);
+});

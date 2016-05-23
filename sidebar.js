@@ -40,20 +40,19 @@ const controller = (options) => {
         }
     }
     else {
-        modelPromise = Promise.resolve(options.model);
+        modelPromise = Promise.resolve(options.menus);
     }
 
     const icCtrl = options.inner.controller();
     // This component supports both sync and async controller
-    const icPromise = (typeof icCtrl === 'Promise') ? contentCtrl : Promise.resolve(icCtrl);
+    const icPromise = (icCtrl instanceof Promise) ? contentCtrl : Promise.resolve(icCtrl);
 
-    // TODO: Complete the controller object
     return Promise.all([modelPromise, icPromise]).then(values => {
-        const model = values[0];
+        const menus = values[0];
         return {
-            menulistCtrl: menulist.controller(model.menus),
+            menulistCtrl: menulist.controller(menus),
             contentCtrl: values[1], // icPromise
-            contentView: content.view
+            contentView: options.inner.view
         }
     });
 }
@@ -85,7 +84,6 @@ const view = (ctrl) => {
 //       </div>
 //     </div>
 //   </div>
-    console.log(ctrl);
     return m('div.container',
         m('div.sidebar-wrapper',
             m('div.sidebar-logo',
