@@ -1,0 +1,13 @@
+{
+    "name": "mithril_boilerplate",
+    "description": "HTML render engine for web-monitor project",
+    "version": "1.0.0",
+    "authors": [
+        "Hamed Abdollahpour <ha.hamed@gmail.com>"
+    ],
+    "dependencies": {
+        "bootstrap": "3.3.6",
+        "bootstrap3-ie10-viewport-bug-workaround": "1.0.0",
+        "fontawesome": "4.5.0"
+    }
+}

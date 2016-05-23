@@ -17,7 +17,7 @@ Usage
                     label: 'Menu 1',
                     status: '10',
                     icon: 'menu1-icon-class',
-                    href: '/some/url'
+                    href: '/some/url',
                     submenu: [
                         {
                             label: 'Menu 1',
