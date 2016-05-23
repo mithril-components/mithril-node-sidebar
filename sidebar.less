@@ -1,1 +1,102 @@
 // TODO: Add custom class if it's required. You can use bootstrap variables and mixins
+@import "../DASHBOARD-mithril/dashboard_sidebar/public/bower_components/bootstrap/less/variables.less";
+
+.sidebar {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    width:100%;
+    &.toggled {
+    padding-left: 250px;
+  }
+
+  .sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: @gray-base;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  &.toggled .sidebar-wrapper {
+    width: 250px;
+  }
+
+  .sidebar-nav {
+	  position: absolute;
+	  top: 0;
+	  width: 250px;
+	  margin: 0;
+	  padding: 0;
+	  list-style: none;
+	  & > li {
+	    text-indent: 20px;
+	    line-height: 40px;
+	    // border-bottom: 1px solid @gray-lighter;
+	    a {
+	      display: block;
+	      text-decoration: none;
+	      // color: #999999;
+	      color: @gray-light;
+	      &:active, &:focus {
+	        text-decoration: none;
+	      }
+	    }
+	    a.active{
+	      background-color: @gray;
+	      color:@body-bg;
+	      // box-shadow:-2px 1px 5px @body-bg;
+	      border-bottom:1px solid @gray;
+	      border-top:1px solid @gray;
+	    }
+	    a:hover, &.opened > a{
+	      text-decoration: none;
+	      color: @body-bg;
+	      background: @brand-success url(../img/arrow.png) no-repeat center right;
+	    }
+	    &.opened > a{
+	      background-color: @brand-success*0.6;
+	    }
+	  }
+
+	  .submenus{
+	    list-style:none;
+	    margin:0;
+	    padding:0;
+	    li a{padding-left:20px;}
+	  }
+
+	  .sidebar-logo {
+		  height: 65px;
+		  font-size: 18px;
+		  line-height: 60px;
+		  // background: @brand-success;
+		  color:@body-bg;
+		  text-indent:0;
+		  text-align:center;
+		  a {
+		    // color: #999999;
+		    color: @brand-success;
+		  }
+		  img{
+		    max-width:80%;
+		    margin:0 auto;
+		  }
+		  a:hover {
+		    // color: #fff;
+		    color: @body-bg;
+		    background: none;
+		  }
+		}
+	}
+}
+
+

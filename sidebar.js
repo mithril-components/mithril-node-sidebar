@@ -84,7 +84,7 @@ const view = (ctrl) => {
 //       </div>
 //     </div>
 //   </div>
-    return m('div.container',
+    return m('div.container.sidebar',
         m('div.sidebar-wrapper',
             m('div.sidebar-logo',
                 m('a', {href: '#'},

@@ -7,7 +7,7 @@ const controller = (data) => {
 }
 
 const view = (ctrl) => {
-    console.log(ctrl);
+    // console.log(ctrl);
     if(ctrl.submenu.length > 0){
         return [
             m('a', {class:ctrl.icon, href:ctrl.href}, ctrl.label),
