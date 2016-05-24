@@ -7,10 +7,10 @@ const controller = (data) => {
 }
 
 const view = (ctrl) => {
-    // console.log(ctrl);
+    console.log(ctrl);
     if(ctrl.submenu.length > 0){
         return [
-            m('a', {class:ctrl.icon, href:ctrl.href}, ctrl.label),
+            m('a', {"class":ctrl.status, href:ctrl.href}, ctrl.label, m(`span.#{ctrl.icon}`)),
             m('ul.submenus', ctrl.submenu.map(s => {
                 return m('li',
                     m('a', {href: s.href}, s.label)

@@ -11,9 +11,7 @@ const controller = (data) => {  // data is list of menu
 
 const view = (ctrl) => {
     return ctrl.map(menuCtrl => {
-        return m('ul.sidebar-nav', 
-            m("li", menu.view(menuCtrl))
-        )
+        return m("li", menu.view(menuCtrl))
     });
 }
 

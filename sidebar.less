@@ -60,7 +60,8 @@
 	    a:hover, &.opened > a{
 	      text-decoration: none;
 	      color: @body-bg;
-	      background: @brand-success url(../img/arrow.png) no-repeat center right;
+	      // background: @brand-success url(../img/arrow.png) no-repeat center right;
+	      background: @brand-success;
 	    }
 	    &.opened > a{
 	      background-color: @brand-success*0.6;
@@ -99,4 +100,25 @@
 	}
 }
 
-
+@media(min-width:768px) {
+  .sidebar {
+    padding-left: 250px;
+    &.toggled{
+      padding-left:0;
+      #sidebar-wrapper {
+        width: 0;
+      }
+    }
+    .page-content-wrapper {
+      padding: 20px;
+      position: relative;
+    }
+    .sidebar-wrapper {
+      width: 250px;
+    }
+    &.toggled .page-content-wrapper {
+      position: relative;
+      margin-right: 0;
+    }
+  }
+}

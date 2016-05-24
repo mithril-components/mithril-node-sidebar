@@ -88,10 +88,10 @@ const view = (ctrl) => {
         m('div.sidebar-wrapper',
             m('div.sidebar-logo',
                 m('a', {href: '#'},
-                    m('img', {src: ctrl.logo, alt: ctrl.title})
+                    m('span', {class: ctrl.logo, alt: ctrl.title})
                 )
             ),
-            m('div.sidebar-wrapper', menulist.view(ctrl.menulistCtrl))
+            m('div.sidebar-wrapper', m('ul.sidebar-nav', menulist.view(ctrl.menulistCtrl)))
         ),
         m('div.menu-toggle',
             m('button', {class: 'navbar-toggle collapsed', type: 'button'}, [
