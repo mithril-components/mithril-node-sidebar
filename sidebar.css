@@ -89,6 +89,9 @@
   color: #fff;
   background: none;
 }
+.sidebar .navbar-toggle .icon-bar {
+  background-color: #5cb85c;
+}
 @media (min-width: 768px) {
   .sidebar {
     padding-left: 250px;

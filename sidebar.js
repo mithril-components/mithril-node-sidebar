@@ -52,43 +52,19 @@ const controller = (options) => {
         return {
             menulistCtrl: menulist.controller(menus),
             contentCtrl: values[1], // icPromise
-            contentView: options.inner.view
+            contentView: options.inner.view,
+            logo: options.logo,
+            title: options.title
         }
     });
 }
 
 const view = (ctrl) => {
-    // TODO: Implement
-// <div class="container" id="wrapper">
-//     <div id="sidebar-wrapper">
-//       <div class="sidebar-brand">
-//         <a href="#"><img src="img/wpic-logo-white.png" alt="Web Presense In China"></a>
-//       </div>
-//       <div id="sidebar-wrapper">%SIDEBAR%</div>
-//     </div>
-//     <!-- /#sidebar-wrapper -->
-//     <div id="menu-toggle">
-//       <button class="navbar-toggle collapsed" type="button">
-//         <span class="sr-only">Toggle navigation</span>
-//         <span class="icon-bar"></span>
-//         <span class="icon-bar"></span>
-//         <span class="icon-bar"></span>
-//       </button>
-//     </div>
-//     <!-- Page Content -->
-//     <div id="page-content-wrapper">
-//       <div class="row">
-//         <div class="col-lg-12">
-//           %CONTENT%
-//         </div>
-//       </div>
-//     </div>
-//   </div>
     return m('div.container.sidebar',
         m('div.sidebar-wrapper',
             m('div.sidebar-logo',
                 m('a', {href: '#'},
-                    m('span', {class: ctrl.logo, alt: ctrl.title})
+                    m('span', {"class": ctrl.logo, title: ctrl.title})
                 )
             ),
             m('div.sidebar-wrapper', m('ul.sidebar-nav', menulist.view(ctrl.menulistCtrl)))

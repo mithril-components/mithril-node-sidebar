@@ -18,17 +18,17 @@
         text-decoration: none;
       }
     }
-    a.cat{
+    a{
       background-color: @gray;
       color:@body-bg;
       // box-shadow:-2px 1px 5px @body-bg;
       border-bottom:1px solid @gray;
       border-top:1px solid @gray;
     }
-    a:hover, &.opened > a{
+    a:hover, &.opened, &.active > a{
       text-decoration: none;
       color: @body-bg;
-      background: @brand-success url(../img/arrow.png) no-repeat center right;
+      background: @brand-success no-repeat center right;
     }
     &.opened > a{
       background-color: @brand-success*0.6;

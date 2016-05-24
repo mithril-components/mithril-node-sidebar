@@ -1,7 +1,7 @@
 // TODO: Add custom class if it's required. You can use bootstrap variables and mixins
 @import "../DASHBOARD-mithril/dashboard_sidebar/public/bower_components/bootstrap/less/variables.less";
 
-.sidebar {
+.sidebar{
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -11,8 +11,7 @@
     &.toggled {
     padding-left: 250px;
   }
-
-  .sidebar-wrapper {
+  .sidebar-wrapper{
     z-index: 1000;
     position: fixed;
     left: 250px;
@@ -30,7 +29,7 @@
     width: 250px;
   }
 
-  .sidebar-nav {
+  .sidebar-nav{
 	  position: absolute;
 	  top: 0;
 	  width: 250px;
@@ -75,7 +74,7 @@
 	    li a{padding-left:20px;}
 	  }
 
-	  .sidebar-logo {
+	  .sidebar-logo{
 		  height: 65px;
 		  font-size: 18px;
 		  line-height: 60px;
@@ -98,25 +97,30 @@
 		  }
 		}
 	}
+	.navbar-toggle{
+		.icon-bar{
+			background-color: @brand-success;
+		}
+	}
 }
 
-@media(min-width:768px) {
-  .sidebar {
+@media(min-width:768px){
+  .sidebar{
     padding-left: 250px;
     &.toggled{
       padding-left:0;
-      #sidebar-wrapper {
+      #sidebar-wrapper{
         width: 0;
       }
     }
-    .page-content-wrapper {
+    .page-content-wrapper{
       padding: 20px;
       position: relative;
     }
-    .sidebar-wrapper {
+    .sidebar-wrapper{
       width: 250px;
     }
-    &.toggled .page-content-wrapper {
+    &.toggled .page-content-wrapper{
       position: relative;
       margin-right: 0;
     }
