@@ -63,16 +63,12 @@ const view = (ctrl) => {
     return m('div.container.sidebar',
         m('div.sidebar-wrapper',
             m('div.sidebar-logo',
-                m('a', {href: '#'},
-                    m('h2', m('span', {"class": ctrl.logo, title: ctrl.title})),
-                    m('h2.text-center', ctrl.title)
-                )
+                m('h2.text-center', m('span', {"class": ctrl.logo, title: ctrl.title}), ctrl.title)
             ),
             m('div.sidebar-wrapper', menulist.view(ctrl.menulistCtrl))
         ),
-        //  data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false"
         m('div.menu-toggle',
-            m('button', {"class": 'navbar-toggle collapsed', "type": 'button', "data-toggle":"collapse", "data-target":".sidebar-wrapper"}, [
+            m('button', {"class": "navbar-toggle collapsed", "type": "button", "data-toggle":"collapse", "data-target":".sidebar-wrapper"}, [
                 m('span', {"class": 'sr-only'}, 'Toggle navigation'),
                 m('span.icon-bar'),
                 m('span.icon-bar'),

@@ -11,6 +11,9 @@
     &.toggled {
     padding-left: 250px;
   }
+  .glyphicon{
+    margin-right: 5px;
+  }
   .sidebar-wrapper{
     z-index: 1000;
     position: fixed;
@@ -38,9 +41,6 @@
   list-style: none;
   > li {
     cursor: pointer;
-    .glyphicon{
-      margin-right: 5px;
-    }
   }
   
   > li > a {
@@ -63,10 +63,9 @@
 
   .submenus{
       list-style:none;
-      margin:0;
+      margin:0 0 0 10px;
       padding:0;
       li a{
-        text-indent:10px;
         &:hover,
         &:focus {
           color: @navbar-inverse-link-hover-color;
@@ -85,6 +84,10 @@
         background-color: @navbar-inverse-bg;
       }
     }
+  }
+
+  .sidebar-logo{
+    color: @navbar-inverse-link-active-color;
   }
   
 }

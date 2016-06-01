@@ -5,11 +5,7 @@ const menu = require('../menu/menu');
 
 const controller = (data, active) => {  // data is list of menu
     return data.map(d => {
-        if(d.href == active){
-          d.active = true;
-        }else{
-          d.active = false;
-        }
+        d.active = active;
         return menu.controller(d);
     });
 }
