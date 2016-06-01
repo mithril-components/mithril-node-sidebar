@@ -1,6 +1,34 @@
-ul.submenus{
+li {
+  cursor: pointer;
+  > a {
+    color: @navbar-inverse-link-color;
+
+    &:hover,
+    &:focus {
+      color: @navbar-inverse-link-hover-color;
+      background-color: @navbar-inverse-link-hover-bg;
+    }
+  }
+  > .active > a {
+    &,
+    &:hover,
+    &:focus {
+      color: @navbar-inverse-link-active-color;
+      background-color: @navbar-inverse-link-active-bg;
+    }
+  }
+
+  .submenus{
     list-style:none;
     margin:0;
     padding:0;
-    li a{padding-left:20px;}
+    li a{
+      text-indent:10px;
+      &:hover,
+      &:focus {
+        color: @navbar-inverse-link-hover-color;
+        background-color: @navbar-inverse-link-hover-bg;
+      }
+    }
+  }
 }

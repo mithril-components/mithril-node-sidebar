@@ -67,11 +67,12 @@ const view = (ctrl) => {
                     m('span', {"class": ctrl.logo, title: ctrl.title})
                 )
             ),
-            m('div.sidebar-wrapper', m('ul.sidebar-nav', menulist.view(ctrl.menulistCtrl)))
+            m('div.sidebar-wrapper', menulist.view(ctrl.menulistCtrl))
         ),
+        //  data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false"
         m('div.menu-toggle',
-            m('button', {class: 'navbar-toggle collapsed', type: 'button'}, [
-                m('span', {class: 'sr-only'}, 'Toggle navigation'),
+            m('button', {"class": 'navbar-toggle collapsed', "type": 'button', "data-toggle":"collapse", "data-target":".sidebar-wrapper"}, [
+                m('span', {"class": 'sr-only'}, 'Toggle navigation'),
                 m('span.icon-bar'),
                 m('span.icon-bar'),
                 m('span.icon-bar')

@@ -7,20 +7,19 @@ const controller = (data) => {
 }
 
 const view = (ctrl) => {
-    console.log(ctrl);
     if(ctrl.submenu.length > 0){
-        return [
+        return m('li',
             m('a', {"class":ctrl.status, href:ctrl.href}, ctrl.label, m(`span.#{ctrl.icon}`)),
-            m('ul.submenus', ctrl.submenu.map(s => {
+            m('ul.submenus.nav.nav.navbar-inverse.nav-stacked', ctrl.submenu.map(s => {
                 return m('li',
                     m('a', {href: s.href}, s.label)
                 )
             }))
-        ]
+        )
     }else{
-        return [
-            m('a', {class:ctrl.icon}, ctrl.label)
-        ]
+        return m('li',
+             m('a', {class:ctrl.icon}, ctrl.label)
+        )
     }
 }
 

@@ -43,7 +43,7 @@ const model = {
 
 
 component.controller(model).then(ctrl => {
-console.log('here');
+// console.log('here');
     const view = component.view(ctrl);
     const innerHtml = render(view);
     console.log(innerHtml);
