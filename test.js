@@ -47,7 +47,8 @@ const model = {
             return m('p','inner')
         }
     },
-    menus: menus
+    //menus: menus
+    menus: 'https://dashboard-staging.wpic-tools.com/sidebar.json' /* Use online version now */
 };
 
 component.controller(model).then(ctrl => {
