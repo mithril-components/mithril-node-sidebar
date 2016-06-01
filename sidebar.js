@@ -50,7 +50,7 @@ const controller = (options) => {
     return Promise.all([modelPromise, icPromise]).then(values => {
         const menus = values[0];
         return {
-            menulistCtrl: menulist.controller(menus),
+            menulistCtrl: menulist.controller(menus, options.active),
             contentCtrl: values[1], // icPromise
             contentView: options.inner.view,
             logo: options.logo,
@@ -64,7 +64,8 @@ const view = (ctrl) => {
         m('div.sidebar-wrapper',
             m('div.sidebar-logo',
                 m('a', {href: '#'},
-                    m('span', {"class": ctrl.logo, title: ctrl.title})
+                    m('h2', m('span', {"class": ctrl.logo, title: ctrl.title})),
+                    m('h2.text-center', ctrl.title)
                 )
             ),
             m('div.sidebar-wrapper', menulist.view(ctrl.menulistCtrl))

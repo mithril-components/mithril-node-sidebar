@@ -30,6 +30,7 @@ const menus = [
 const model = {
     title: 'Web site title',
     logo: 'icon-class-name',
+    active: '/some/url/of/a/page',
     inner: {
         controller: () => {
             return {
