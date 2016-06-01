@@ -3,24 +3,21 @@
 const m = require('mithril');
 
 const controller = (data) => {
+    data.submenuCtrls = !data.submenu ? [] : data.submenu.map(s => {
+        return controller(s);
+    })
     return data;
 }
 
 const view = (ctrl) => {
-    if(ctrl.submenu.length > 0){
-        return m('li',
-            m('a', {"class":ctrl.status, href:ctrl.href}, m('span', {'class':ctrl.icon}), ctrl.label),
-            m('ul.submenus.nav.nav.navbar-inverse.nav-stacked', ctrl.submenu.map(s => {
-                return m('li',
-                    m('a', {href:s.href}, m('span', {'class': s.icon}), s.label)
-                )
-            }))
-        )
-    }else{
-        return m('li',
-            m('a', {"class":ctrl.status, href:ctrl.href}, m('span', {'class':ctrl.icon}), ctrl.label)
-        )
-    }
+    return m('li',
+        m('a', {"class":ctrl.status, href:ctrl.href}, m('span', {'class':ctrl.icon}), ctrl.label),
+        m('ul.submenus.nav.nav.navbar-inverse.nav-stacked', ctrl.submenuCtrls.map(s => {
+            return m('li',
+                view(s)
+            );
+        }))
+    );
 }
 
 module.exports = {

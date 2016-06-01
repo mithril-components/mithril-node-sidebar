@@ -15,7 +15,14 @@ const menus = [
             {
                 label: 'Menu 1',
                 icon: 'glyphicon glyphicon-road',
-                href: '/some/url/of/a/page'
+                href: '/some/url/of/a/page',
+                submenu: [
+                    {
+                        label: 'Menu 1-1',
+                        icon: 'glyphicon glyphicon-road',
+                        href: '/some/url/of/a/page'
+                    }
+                ]
             }
         ]
     },
