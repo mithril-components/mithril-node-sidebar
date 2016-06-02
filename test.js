@@ -37,22 +37,30 @@ const menus = [
 const model = {
     title: 'Web site title',
     logo: 'glyphicon glyphicon-list-alt',
-    active: '/some/url/of/a/page',
-    inner: {
-        controller: () => {
-            return {
-                data: '1'
-            }
-        },
-        view: () => {
-            return m('p','inner')
-        }
-    },
-    //menus: menus
-    menus: 'https://dashboard-staging.wpic-tools.com/sidebar.json' /* Use online version now */
+    menus: menus
 };
 
-component.controller(model).then(ctrl => {
+const innerComponent = {
+    controller: () => {
+        return {
+            data: '1'
+        }
+    },
+    view: () => {
+        return m('p','inner')
+    }
+};
+
+const options = {
+    inner: innerComponent,
+    active: '/some/url/of/a/page',
+    //model: model
+    /* Use online version now */
+    model: 'https://dashboard-staging.wpic-tools.com/sidebar.json'
+};
+
+
+component.controller(options).then(ctrl => {
 // console.log('here');
     const view = component.view(ctrl);
     const innerHtml = render(view);

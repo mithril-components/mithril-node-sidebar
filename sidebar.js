@@ -8,10 +8,10 @@ const menulist = require('./mithril_components/menulist/menulist');
 
 const controller = (options) => {
     let modelPromise;
-    if (typeof options.menus === 'string') {
-        if (options.menus.match(/^https?:\/\//)) {
+    if (typeof options.model === 'string') {
+        if (options.model.match(/^https?:\/\//)) {
             modelPromise = new Promise((resolve, reject) => {
-                https.get(options.menus, function(res){
+                https.get(options.model, function(res){
                     let body = '';
 
                     res.on('data', function(chunk){
@@ -29,7 +29,7 @@ const controller = (options) => {
         }
         else {
             modelPromise = new Promise((resolve, reject) => {
-                fs.readFile(options.menus, 'utf8', (err, json) => {
+                fs.readFile(options.model, 'utf8', (err, json) => {
                     if (err) {
                         reject(err);
                     }
@@ -41,7 +41,7 @@ const controller = (options) => {
         }
     }
     else {
-        modelPromise = Promise.resolve(options.menus);
+        modelPromise = Promise.resolve(options);
     }
 
     const icCtrl = options.inner.controller();
@@ -49,13 +49,13 @@ const controller = (options) => {
     const icPromise = (icCtrl instanceof Promise) ? contentCtrl : Promise.resolve(icCtrl);
 
     return Promise.all([modelPromise, icPromise]).then(values => {
-        const menus = values[0];
+        const resolvedOptions = values[0];
         return {
-            menulistCtrl: menulist.controller(menus, options.active),
+            menulistCtrl: menulist.controller(resolvedOptions.menus, options.active),
             contentCtrl: values[1], // icPromise
             contentView: options.inner.view,
-            logo: options.logo,
-            title: options.title
+            logo: options.model.logo,
+            title: options.model.title
         }
     });
 }
