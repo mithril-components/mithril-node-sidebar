@@ -23,13 +23,13 @@
     margin-left: -250px;
     overflow-y: auto;
     background: @gray-base;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-  }
-  &.toggled .sidebar-wrapper {
-    width: 250px;
+    -webkit-transition: width 0.5s ease;
+    -moz-transition: width 0.5s ease;
+    -o-transition: width 0.5s ease;
+    transition: width 0.5s ease;
+    &.collapse.in{
+      width: 250px;
+    }
   }
 
   .sidebar-nav {

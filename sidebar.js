@@ -61,7 +61,7 @@ const controller = (options) => {
 }
 
 const view = (ctrl) => {
-    return m('div.container.sidebar',
+    return m('div.container-fluid.sidebar',
         m('div.sidebar-wrapper',
             m('div.sidebar-logo',
                 m('h2.text-center', m('span', {"class": ctrl.logo, title: ctrl.title}), ctrl.title)
@@ -78,7 +78,14 @@ const view = (ctrl) => {
         ),
         m('div.page-content-wrapper',
             m('div.row', m('div.col-lg-12', ctrl.contentView(ctrl.contentCtrl)))
-        )
+        ),
+        m('script', `$(document).ready(function(){
+        $(".menu-toggle button").click(function(e) {
+          // console.log(1);
+          e.preventDefault();
+          $(".sidebar-wrapper").first().toggleClass("toggled");
+        });
+    });`)
     );
 }
 
