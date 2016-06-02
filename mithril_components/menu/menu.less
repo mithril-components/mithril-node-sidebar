@@ -1,36 +1,39 @@
 li {
-  cursor: pointer;
-  .glyphicon{
-    margin-right: 5px;
-  }
-  > a {
-    color: @navbar-inverse-link-color;
+    .badge{
+        float: right;
+    }
+    cursor: pointer;
+    .glyphicon{
+        margin-right: 5px;
+    }
+    > a {
+        color: @navbar-inverse-link-color;
 
-    &:hover,
-    &:focus {
-      color: @navbar-inverse-link-hover-color;
-      background-color: @navbar-inverse-link-hover-bg;
+        &:hover,
+        &:focus {
+            color: @navbar-inverse-link-hover-color;
+            background-color: @navbar-inverse-link-hover-bg;
+        }
     }
-  }
-  > .active > a {
-    &,
-    &:hover,
-    &:focus {
-      color: @navbar-inverse-link-active-color;
-      background-color: @navbar-inverse-link-active-bg;
+    > .active > a {
+        &,
+        &:hover,
+        &:focus {
+            color: @navbar-inverse-link-active-color;
+            background-color: @navbar-inverse-link-active-bg;
+        }
     }
-  }
 
-  .submenus{
-    list-style:none;
-    margin:0 0 0 10px;
-    padding:0;
-    li a{
-      &:hover,
-      &:focus {
-        color: @navbar-inverse-link-hover-color;
-        background-color: @navbar-inverse-link-hover-bg;
-      }
+    .submenus{
+        list-style:none;
+        margin:0 0 0 10px;
+        padding:0;
+        li a{
+            &:hover,
+            &:focus {
+                color: @navbar-inverse-link-hover-color;
+                background-color: @navbar-inverse-link-hover-bg;
+            }
+        }
     }
-  }
 }
