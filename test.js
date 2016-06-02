@@ -37,7 +37,7 @@ const menus = [
 const model = {
     title: 'Web site title',
     logo: 'glyphicon glyphicon-list-alt',
-    active: '/some/url/',
+    active: '/some/url/of/a/page',
     inner: {
         controller: () => {
             return {
