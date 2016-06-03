@@ -1,7 +1,7 @@
 // TODO: Add custom class if it's required. You can use bootstrap variables and mixins
 
 .sidebar{
-    padding-left: 0;
+    padding: 0;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -77,16 +77,24 @@
     .menu-toggle{
         position: absolute;
         width:100%;
+        min-height:50px;
         .navbar-toggle{
             position: relative;
             .icon-bar{
                 background-color: @navbar-inverse-bg;
             }
         }
+        @media (min-width: 768px){
+            display: none;
+        }
     }
 
     .sidebar-logo{
         color: @navbar-inverse-link-active-color;
+    }
+
+    .page-content-wrapper{
+        margin-top: 50px;
     }
     
 }

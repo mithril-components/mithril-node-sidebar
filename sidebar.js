@@ -78,14 +78,7 @@ const view = (ctrl) => {
         ),
         m('div.page-content-wrapper',
             m('div.row', m('div.col-lg-12', ctrl.contentView(ctrl.contentCtrl)))
-        ),
-        m('script', `$(document).ready(function(){
-        $(".menu-toggle button").click(function(e) {
-          // console.log(1);
-          e.preventDefault();
-          $(".sidebar-wrapper").first().toggleClass("toggled");
-        });
-    });`)
+        )
     );
 }
 
