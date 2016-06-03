@@ -27,6 +27,12 @@
         -moz-transition: width 0.5s ease;
         -o-transition: width 0.5s ease;
         transition: width 0.5s ease;
+        &.collapse{
+            @media (max-width: 768px){
+                height: 100% !important;
+                display: block;
+            }
+        }
         &.collapse.in{
             width: 250px;
         }
