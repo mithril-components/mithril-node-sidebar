@@ -46,7 +46,7 @@ const controller = (options) => {
 
     const icCtrl = options.inner.controller();
     // This component supports both sync and async controller
-    const icPromise = (icCtrl instanceof Promise) ? contentCtrl : Promise.resolve(icCtrl);
+    const icPromise = (icCtrl instanceof Promise) ? icCtrl : Promise.resolve(icCtrl);
 
     return Promise.all([modelPromise, icPromise]).then(values => {
         const resolvedOptions = values[0];
