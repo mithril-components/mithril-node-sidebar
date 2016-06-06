@@ -13,6 +13,7 @@ const controller = (data) => {
     //const selfActive = data.active && data.href && (data.active.split(/[#?]/)[0] == data.href.split(/[#?]/)[0]);
     const selfActive = data.active && data.href && (data.active.indexOf(data.href) === 0);
     data.active = activeChild || selfActive;
+    data.mainActive = selfActive && !activeChild;
 
     return data;
 }
