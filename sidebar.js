@@ -41,7 +41,7 @@ const controller = (options) => {
         }
     }
     else {
-        modelPromise = Promise.resolve(options);
+        modelPromise = Promise.resolve(options.model);
     }
 
     const icCtrl = options.inner.controller();
@@ -49,13 +49,13 @@ const controller = (options) => {
     const icPromise = (icCtrl instanceof Promise) ? icCtrl : Promise.resolve(icCtrl);
 
     return Promise.all([modelPromise, icPromise]).then(values => {
-        const resolvedOptions = values[0];
+        const model = values[0];
         return {
-            menulistCtrl: menulist.controller(resolvedOptions.menus, options.active),
+            menulistCtrl: menulist.controller(model.menus, options.active),
             contentCtrl: values[1], // icPromise
             contentView: options.inner.view,
-            logo: options.model.logo,
-            title: options.model.title
+            logo: model.logo,
+            title: model.title
         }
     });
 }
@@ -64,7 +64,7 @@ const view = (ctrl) => {
     return m('div.container-fluid.sidebar',
         m('div.sidebar-wrapper',
             m('div.sidebar-logo',
-                m('h2.text-center', m('span', {"class": ctrl.logo, title: ctrl.title}), ctrl.title)
+                m('h3.text-center', m('span', {"class": ctrl.logo, title: ctrl.title}), ctrl.title)
             ),
             m('div.sidebar-wrapper', menulist.view(ctrl.menulistCtrl))
         ),
