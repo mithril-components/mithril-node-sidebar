@@ -6,38 +6,75 @@ const render = require('mithril-node-render');
 const component = require('./sidebar');
 
 const menus = [
-    {
-        label: 'Menu 1',
-        status: '10',
-        icon: 'glyphicon glyphicon-list-alt',
-        href: '/some/url',
-        submenu: [
-            {
-                label: 'Menu 1',
-                icon: 'glyphicon glyphicon-road',
-                href: '/some/url/of/a/page',
-                submenu: [
-                    {
-                        label: 'Menu 1-1',
-                        icon: 'glyphicon glyphicon-road',
-                        href: '/some/url/of/a/page/2'
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        label: 'Menu 2',
-        icon: 'glyphicon glyphicon-inbox',
-        href: 'Some other url',
-        submenu: []
-    }
-];
+        {
+            "label": "Keyword tools",
+            "icon": "wpic wpic-keyword-tools",
+            "href": "//keyword-staging.wpic-tools.com",
+            "submenu": [
+                {
+                    "label": "Search",
+                    "icon": "glyphicon glyphicon-search",
+                    "href": "//keyword-staging.wpic-tools.com/search"
+                },
+                {
+                    "label": "History",
+                    "icon": "glyphicon glyphicon-th-list",
+                    "href": "//keyword-staging.wpic-tools.com/histories"
+                }
+            ]
+        },
+        {
+            "label": "Squirrel",
+            "icon": "wpic wpic-squirrel",
+            "submenu": [
+                {
+                    "label": "Squirrel search",
+                    "icon": "wpic wpic-squirrel",
+                    "href": "//squirrel-search.wpic-tools.com/"
+                },
+                {
+                    "label": "Squirrel store",
+                    "icon": "wpic wpic-squirrel",
+                    "href": "//squirrel-store.wpic-tools.com/"
+                },
+                {
+                    "label": "Squirrel blog",
+                    "icon": "wpic wpic-squirrel",
+                    "href": "//squirrel-blog.wpic-tools.com/"
+                }
+            ]
+        },
+        {
+            "label": "Web monitor",
+            "icon": "wpic wpic-web-monitor",
+            "href": "//monitor-staging.wpic-tools.com"
+        },
+        {
+            "label": "Discripto",
+            "icon": "wpic wpic-discripto",
+            "href": "//discripto-staging.wpic-tools.com"
+        },
+        {
+            "label": "Image center",
+            "icon": "wpic wpic-discripto",
+            "href": "//image-staging.wpic-tools.com"
+        },
+        {
+            "label": "VPS manager",
+            "icon": "wpic wpic-vps-manager",
+            "href": "//vps-staging.wpic-tools.com"
+        },
+        {
+            "label": "Keyword search",
+            "icon": "wpic wpic-vps-manager",
+            "href": "//vps-staging.wpic-tools.com"
+        }
+    ];
 
 const model = {
-    title: 'Web site title',
-    logo: 'glyphicon glyphicon-list-alt',
-    menus: menus
+    "title": "WPIC Dashboard",
+    "logo": "wpic wpic-logo",
+    "menus": menus
 };
 
 const innerComponent = {
@@ -53,10 +90,10 @@ const innerComponent = {
 
 const options = {
     inner: innerComponent,
-    active: 'https://monitor-staging.wpic-tools.com',
-    //model: model
+    active: '//keyword-staging.wpic-tools.com',
+    model: model
     /* Use online version now */
-    model: 'https://dashboard-staging.wpic-tools.com/sidebar.json'
+    //model: 'https://dashboard-staging.wpic-tools.com/sidebar.json'
 };
 
 
