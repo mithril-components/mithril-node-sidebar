@@ -1,7 +1,7 @@
 {
     "name": "mithril-node-sidebar",
     "version": "1.0.4",
-    "description": "",git s
+    "description": "",
     "main": "sidebar.js",
     "dependencies": {
         "mithril": "^0.2.0"
