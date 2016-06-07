@@ -16,6 +16,7 @@ li {
         }
     }
     > .active > a {
+        border-color: @navbar-inverse-link-active-bg;
         &,
         &:hover,
         &:focus {
@@ -23,6 +24,10 @@ li {
             font-weight: bolder;
             background-color: @navbar-inverse-link-active-bg;
         }
+    }
+
+    > .active.mainActive > a {
+        border-color: #337AB7;
     }
 
     .submenus{
@@ -41,13 +46,15 @@ li {
                 }
             }
             &.active > a {
-                border-color: #337AB7;
+                border-color: @navbar-inverse-link-active-bg;
                 color: @navbar-inverse-link-hover-color;
                 &:hover,
                 &:focus {
                     background-color: @navbar-inverse-link-active-bg;
                 }
-                
+            }
+            &.active.mainActive > a{
+                border-color: #337AB7;
             }
 
         }

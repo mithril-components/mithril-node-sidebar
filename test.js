@@ -90,7 +90,7 @@ const innerComponent = {
 
 const options = {
     inner: innerComponent,
-    active: '//keyword-staging.wpic-tools.com',
+    active: '//keyword-staging.wpic-tools.com/histories',
     model: model
     /* Use online version now */
     //model: 'https://dashboard-staging.wpic-tools.com/sidebar.json'
