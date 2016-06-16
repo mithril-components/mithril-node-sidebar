@@ -16,7 +16,17 @@ const view = (ctrl) => {
     });
 }
 
+const findNext = (listCtrl) => {
+    for(ctrl in ctrlList) {
+       if (ctrl.active) {
+           return find(ctrl.submenuCtrls);
+       }
+    }
+    return listCtrl;
+}
+
 module.exports = {
     controller: controller,
-    view: view
+    view: view,
+    findNext: findNext
 }

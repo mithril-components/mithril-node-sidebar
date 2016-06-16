@@ -44,19 +44,41 @@ const controller = (options) => {
         modelPromise = Promise.resolve(options.model);
     }
 
-    const icCtrl = options.inner.controller();
-    // This component supports both sync and async controller
-    const icPromise = (icCtrl instanceof Promise) ? icCtrl : Promise.resolve(icCtrl);
+    let icPromise;
+    if (options.inner) {
+        const icCtrl = options.inner.controller();
+        // This component supports both sync and async controller
+        icPromise = (icCtrl instanceof Promise) ? icCtrl : Promise.resolve(icCtrl);
+    }
+    else {
+        icPromise = Promise.resolve(null);
+    }
 
     return Promise.all([modelPromise, icPromise]).then(values => {
         const model = values[0];
+
+        const menulistCtrl = menulist.controller(model.menus, options.active);c
+
+        if (options.inner) {
+            contentCtrl = values[1]; // icPromise
+            contentView = options.inner.view;
+        } else {
+            contentCtrl = () = {
+                return directorylist.controller(menulist.findNext(menulistCtrl));
+            };
+            contentView = directorylist.view;
+        }
+
         return {
-            menulistCtrl: menulist.controller(model.menus, options.active),
-            contentCtrl: values[1], // icPromise
-            contentView: options.inner.view,
+            menulistCtrl: menulistCtrl,
+            contentCtrl: contentCtrl,
+            contentView: contentView,
             logo: model.logo,
             title: model.title
         }
+
+        if )
+        menuslist.findNext(menulistCtrl)
     });
 }
 
