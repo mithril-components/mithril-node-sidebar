@@ -4,6 +4,7 @@ const https = require('https');
 const m = require('mithril');
 const menu = require('./mithril_components/menu/menu');
 const menulist = require('./mithril_components/menulist/menulist');
+const directorylist = require('./mithril_components/directorylist/directorylist')
 
 
 const controller = (options) => {
@@ -57,15 +58,15 @@ const controller = (options) => {
     return Promise.all([modelPromise, icPromise]).then(values => {
         const model = values[0];
 
-        const menulistCtrl = menulist.controller(model.menus, options.active);c
+        const menulistCtrl = menulist.controller(model.menus, options.active);
+        // console.log(menulist.findNext(menulistCtrl))
 
+        let contentCtrl, contentView;
         if (options.inner) {
             contentCtrl = values[1]; // icPromise
             contentView = options.inner.view;
         } else {
-            contentCtrl = () = {
-                return directorylist.controller(menulist.findNext(menulistCtrl));
-            };
+            contentCtrl = directorylist.controller(menulist.findNext(menulistCtrl));
             contentView = directorylist.view;
         }
 
@@ -77,8 +78,7 @@ const controller = (options) => {
             title: model.title
         }
 
-        if )
-        menuslist.findNext(menulistCtrl)
+        // if )
     });
 }
 

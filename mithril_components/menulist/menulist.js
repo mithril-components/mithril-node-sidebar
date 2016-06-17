@@ -17,12 +17,14 @@ const view = (ctrl) => {
 }
 
 const findNext = (listCtrl) => {
-    for(ctrl in ctrlList) {
+    for(var ctrl in listCtrl) {
        if (ctrl.active) {
-           return find(ctrl.submenuCtrls);
+           return findNext(ctrl.submenu);
+       }else{
+            return listCtrl;
        }
     }
-    return listCtrl;
+    // return listCtrl;
 }
 
 module.exports = {

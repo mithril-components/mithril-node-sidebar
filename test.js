@@ -89,10 +89,10 @@ const innerComponent = {
 };
 
 const options = {
-    active: '"//-staging.wpic-tools.com"',
+    active: '//keyword-staging.wpic-tools.com',
     model: model
     /* Use online version now */
-    //model: 'https://dashboard-staging.wpic-tools.com/sidebar.json'
+    // model: 'https://dashboard-staging.wpic-tools.com/sidebar.json'
 };
 
 
