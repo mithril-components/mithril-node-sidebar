@@ -59,6 +59,7 @@ const controller = (options) => {
         const model = values[0];
 
         const menulistCtrl = menulist.controller(model.menus, options.active);
+        // console.log(menulistCtrl);
         // console.log(menulist.findNext(menulistCtrl))
 
         let contentCtrl, contentView;
@@ -83,6 +84,7 @@ const controller = (options) => {
 }
 
 const view = (ctrl) => {
+    // console.log(ctrl.contentCtrl);
     return m('div.container-fluid.sidebar',
         m('div.sidebar-wrapper',
             m('div.sidebar-logo',

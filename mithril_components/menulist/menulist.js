@@ -12,19 +12,17 @@ const controller = (data, active) => {  // data is list of menu
 
 const view = (ctrl) => {
     return ctrl.map(menuCtrl => {
-        return m("ul.sidebar-nav.nav.navbar-inverse.nav-stacked", menu.view(menuCtrl))
+        return m("ul.mc-sidebar-nav.nav.navbar-inverse.nav-stacked", menu.view(menuCtrl))
     });
 }
 
 const findNext = (listCtrl) => {
-    for(var ctrl in listCtrl) {
-       if (ctrl.active) {
-           return findNext(ctrl.submenu);
-       }else{
-            return listCtrl;
+    for(var i in listCtrl) {
+       if (listCtrl[i].active) {
+           return listCtrl[i].submenu;
        }
     }
-    // return listCtrl;
+    return listCtrl;
 }
 
 module.exports = {

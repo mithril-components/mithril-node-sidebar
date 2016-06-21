@@ -89,7 +89,7 @@ const innerComponent = {
 };
 
 const options = {
-    active: '//keyword-staging.wpic-tools.com',
+    active: '//keyword-staging.wpic-tools.com/',
     model: model
     /* Use online version now */
     // model: 'https://dashboard-staging.wpic-tools.com/sidebar.json'
