@@ -10,6 +10,7 @@ const controller = (list) => {
 
 const view = (ctrl) => {
     // generate the page
+    // console.log(ctrl);
     return m('div.col-md-12.mc-sidebar-dir', 
         ctrl.map(directoryCtrl => {
             return directory.view(directoryCtrl);

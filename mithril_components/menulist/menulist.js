@@ -17,12 +17,14 @@ const view = (ctrl) => {
 }
 
 const findNext = (listCtrl) => {
+    // console.log(listCtrl);
     for(var i in listCtrl) {
-       if (listCtrl[i].active) {
-           return listCtrl[i].submenu;
-       }
+        if (listCtrl[i].active && listCtrl[i].mainActive) {
+            // console.log(listCtrl[i]);
+            return listCtrl[i].submenu;
+        }
     }
-    return listCtrl;
+    return null;
 }
 
 module.exports = {

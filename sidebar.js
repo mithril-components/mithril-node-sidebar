@@ -67,7 +67,8 @@ const controller = (options) => {
             contentCtrl = values[1]; // icPromise
             contentView = options.inner.view;
         } else {
-            contentCtrl = directorylist.controller(menulist.findNext(menulistCtrl));
+            const next = menulist.findNext(menulistCtrl);
+            contentCtrl = next ? directorylist.controller(next) : null;
             contentView = directorylist.view;
         }
 
@@ -84,7 +85,6 @@ const controller = (options) => {
 }
 
 const view = (ctrl) => {
-    // console.log(ctrl.contentCtrl);
     return m('div.container-fluid.sidebar',
         m('div.sidebar-wrapper',
             m('div.sidebar-logo',
@@ -101,7 +101,7 @@ const view = (ctrl) => {
             ])
         ),
         m('div.page-content-wrapper',
-            m('div.row', m('div.col-lg-12', ctrl.contentView(ctrl.contentCtrl)))
+            m('div.row', m('div.col-lg-12', ctrl.contentCtrl ? ctrl.contentView(ctrl.contentCtrl) : ''))
         )
     );
 }
