@@ -1,6 +1,6 @@
 'use strict'
 
-const https = require('https');
+const http = require('http');
 const m = require('mithril');
 const menu = require('./mithril_components/menu/menu');
 const menulist = require('./mithril_components/menulist/menulist');
@@ -12,7 +12,7 @@ const controller = (options) => {
     if (typeof options.model === 'string') {
         if (options.model.match(/^https?:\/\//)) {
             modelPromise = new Promise((resolve, reject) => {
-                https.get(options.model, function(res){
+                http.get(options.model, function(res){
                     let body = '';
 
                     res.on('data', function(chunk){
