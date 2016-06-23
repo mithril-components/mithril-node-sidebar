@@ -1,14 +1,16 @@
 'use strict'
 
+const http = require('http');
 const m = require('mithril');
 const menu = require('./mithril_components/menu/menu');
 const menulist = require('./mithril_components/menulist/menulist');
+const directorylist = require('./mithril_components/directorylist/directorylist')
 
 
 const controller = (options) => {
     let modelPromise;
     if (typeof options.model === 'string') {
-        if (model.match(/^https?:\/\//)) {
+        if (options.model.match(/^https?:\/\//)) {
             modelPromise = new Promise((resolve, reject) => {
                 http.get(options.model, function(res){
                     let body = '';
@@ -40,69 +42,66 @@ const controller = (options) => {
         }
     }
     else {
-        modelPromise = Promise.resolve(options.menus);
+        modelPromise = Promise.resolve(options.model);
     }
 
-    const icCtrl = options.inner.controller();
-    // This component supports both sync and async controller
-    const icPromise = (icCtrl instanceof Promise) ? contentCtrl : Promise.resolve(icCtrl);
+    let icPromise;
+    if (options.inner) {
+        const icCtrl = options.inner.controller();
+        // This component supports both sync and async controller
+        icPromise = (icCtrl instanceof Promise) ? icCtrl : Promise.resolve(icCtrl);
+    }
+    else {
+        icPromise = Promise.resolve(null);
+    }
 
     return Promise.all([modelPromise, icPromise]).then(values => {
-        const menus = values[0];
-        return {
-            menulistCtrl: menulist.controller(menus),
-            contentCtrl: values[1], // icPromise
-            contentView: options.inner.view
+        const model = values[0];
+
+        const menulistCtrl = menulist.controller(model.menus, options.active);
+        // console.log(menulistCtrl);
+        // console.log(menulist.findNext(menulistCtrl))
+
+        let contentCtrl, contentView;
+        if (options.inner) {
+            contentCtrl = values[1]; // icPromise
+            contentView = options.inner.view;
+        } else {
+            const next = menulist.findNext(menulistCtrl);
+            contentCtrl = next ? directorylist.controller(next) : null;
+            contentView = directorylist.view;
         }
+
+        return {
+            menulistCtrl: menulistCtrl,
+            contentCtrl: contentCtrl,
+            contentView: contentView,
+            logo: model.logo,
+            title: model.title
+        }
+
+        // if )
     });
 }
 
 const view = (ctrl) => {
-    // TODO: Implement
-// <div class="container" id="wrapper">
-//     <div id="sidebar-wrapper">
-//       <div class="sidebar-brand">
-//         <a href="#"><img src="img/wpic-logo-white.png" alt="Web Presense In China"></a>
-//       </div>
-//       <div id="sidebar-wrapper">%SIDEBAR%</div>
-//     </div>
-//     <!-- /#sidebar-wrapper -->
-//     <div id="menu-toggle">
-//       <button class="navbar-toggle collapsed" type="button">
-//         <span class="sr-only">Toggle navigation</span>
-//         <span class="icon-bar"></span>
-//         <span class="icon-bar"></span>
-//         <span class="icon-bar"></span>
-//       </button>
-//     </div>
-//     <!-- Page Content -->
-//     <div id="page-content-wrapper">
-//       <div class="row">
-//         <div class="col-lg-12">
-//           %CONTENT%
-//         </div>
-//       </div>
-//     </div>
-//   </div>
-    return m('div.container',
+    return m('div.container-fluid.sidebar',
         m('div.sidebar-wrapper',
             m('div.sidebar-logo',
-                m('a', {href: '#'},
-                    m('img', {src: ctrl.logo, alt: ctrl.title})
-                )
+                m('h3.text-center', m('span', {"class": ctrl.logo, title: ctrl.title}), ctrl.title)
             ),
             m('div.sidebar-wrapper', menulist.view(ctrl.menulistCtrl))
         ),
         m('div.menu-toggle',
-            m('button', {class: 'navbar-toggle collapsed', type: 'button'}, [
-                m('span', {class: 'sr-only'}, 'Toggle navigation'),
+            m('button', {"class": "navbar-toggle collapsed", "type": "button", "data-toggle":"collapse", "data-target":".sidebar-wrapper"}, [
+                m('span', {"class": 'sr-only'}, 'Toggle navigation'),
                 m('span.icon-bar'),
                 m('span.icon-bar'),
                 m('span.icon-bar')
             ])
         ),
         m('div.page-content-wrapper',
-            m('div.row', m('div.col-lg-12', ctrl.contentView(ctrl.contentCtrl)))
+            m('div.row', m('div.col-lg-12', ctrl.contentCtrl ? ctrl.contentView(ctrl.contentCtrl) : ''))
         )
     );
 }

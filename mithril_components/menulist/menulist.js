@@ -3,19 +3,32 @@
 const m = require('mithril');
 const menu = require('../menu/menu');
 
-const controller = (data) => {  // data is list of menu
+const controller = (data, active) => {  // data is list of menu
     return data.map(d => {
+        d.active = active;
         return menu.controller(d);
     });
 }
 
 const view = (ctrl) => {
     return ctrl.map(menuCtrl => {
-        return m("li", menu.view(menuCtrl));
+        return m("ul.mc-sidebar-nav.nav.navbar-inverse.nav-stacked", menu.view(menuCtrl))
     });
+}
+
+const findNext = (listCtrl) => {
+    // console.log(listCtrl);
+    for(var i in listCtrl) {
+        if (listCtrl[i].active && listCtrl[i].mainActive) {
+            // console.log(listCtrl[i]);
+            return listCtrl[i].submenu;
+        }
+    }
+    return null;
 }
 
 module.exports = {
     controller: controller,
-    view: view
+    view: view,
+    findNext: findNext
 }

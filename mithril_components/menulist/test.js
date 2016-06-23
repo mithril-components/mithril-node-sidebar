@@ -8,19 +8,19 @@ const model = [
     {
         label: 'Menu 1',
         status: '10',
-        icon: 'menu1-icon-class',
+        icon: 'glyphicon glyphicon-list-alt',
         href: '/some/url',
         submenu: [
             {
                 label: 'Menu 1',
-                icon: 'menu1-icon-class',
+                icon: 'glyphicon glyphicon-road',
                 href: '/some/url/of/a/page'
             }
         ]
     },
     {
         label: 'Menu 2',
-        icon: 'menu2-icon-class',
+        icon: 'glyphicon glyphicon-inbox',
         href: 'Some other url',
         submenu: []
     }
