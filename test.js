@@ -45,6 +45,48 @@ const menus = [
             ]
         },
         {
+            "label": "Squirrel",
+            "icon": "wpic wpic-squirrel",
+            "submenu": [
+                {
+                    "label": "Squirrel search",
+                    "icon": "wpic wpic-squirrel",
+                    "href": "//squirrel-search.wpic-tools.com/"
+                },
+                {
+                    "label": "Squirrel store",
+                    "icon": "wpic wpic-squirrel",
+                    "href": "//squirrel-store.wpic-tools.com/"
+                },
+                {
+                    "label": "Squirrel blog",
+                    "icon": "wpic wpic-squirrel",
+                    "href": "//squirrel-blog.wpic-tools.com/"
+                }
+            ]
+        },
+        {
+            "label": "Squirrel",
+            "icon": "wpic wpic-squirrel",
+            "submenu": [
+                {
+                    "label": "Squirrel search",
+                    "icon": "wpic wpic-squirrel",
+                    "href": "//squirrel-search.wpic-tools.com/"
+                },
+                {
+                    "label": "Squirrel store",
+                    "icon": "wpic wpic-squirrel",
+                    "href": "//squirrel-store.wpic-tools.com/"
+                },
+                {
+                    "label": "Squirrel blog",
+                    "icon": "wpic wpic-squirrel",
+                    "href": "//squirrel-blog.wpic-tools.com/"
+                }
+            ]
+        },
+        {
             "label": "Web monitor",
             "icon": "wpic wpic-web-monitor",
             "href": "//monitor-staging.wpic-tools.com"

@@ -10,7 +10,7 @@ const controller = (data) => {
     const activeChild = data.submenuCtrls.length == 0 ? false : data.submenuCtrls.reduce((previousValue, currentValue) => {
         return previousValue.active || currentValue.active;
     });
-    //const selfActive = data.active && data.href && (data.active.split(/[#?]/)[0] == data.href.split(/[#?]/)[0]);
+    
     const selfActive = data.active && (typeof data.href != undefined) && (data.active.indexOf(data.href) === 0);
     data.active = activeChild || selfActive;
     data.mainActive = selfActive && !activeChild;
