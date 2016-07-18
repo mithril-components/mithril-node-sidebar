@@ -20,6 +20,36 @@ const menus = [
                     "label": "History",
                     "icon": "glyphicon glyphicon-th-list",
                     "href": "//keyword-staging.wpic-tools.com/histories"
+                },
+                {
+                    "label": "History",
+                    "icon": "glyphicon glyphicon-th-list",
+                    "href": "//keyword-staging.wpic-tools.com/histories"
+                },
+                {
+                    "label": "History",
+                    "icon": "glyphicon glyphicon-th-list",
+                    "href": "//keyword-staging.wpic-tools.com/histories"
+                },
+                {
+                    "label": "History",
+                    "icon": "glyphicon glyphicon-th-list",
+                    "href": "//keyword-staging.wpic-tools.com/histories"
+                },
+                {
+                    "label": "History",
+                    "icon": "glyphicon glyphicon-th-list",
+                    "href": "//keyword-staging.wpic-tools.com/histories"
+                },
+                {
+                    "label": "History",
+                    "icon": "glyphicon glyphicon-th-list",
+                    "href": "//keyword-staging.wpic-tools.com/histories"
+                },
+                {
+                    "label": "History",
+                    "icon": "glyphicon glyphicon-th-list",
+                    "href": "//keyword-staging.wpic-tools.com/histories"
                 }
             ]
         },
