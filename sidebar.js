@@ -90,7 +90,7 @@ const view = (ctrl) => {
             m('div.sidebar-logo',
                 m('h3.text-center', m('span', {"class": ctrl.logo, title: ctrl.title}), ctrl.title)
             ),
-            m('div.sidebar-wrapper', menulist.view(ctrl.menulistCtrl))
+            m('div.sidebar-wrapper-menu', menulist.view(ctrl.menulistCtrl))
         ),
         m('div.menu-toggle',
             m('button', {"class": "navbar-toggle collapsed", "type": "button", "data-toggle":"collapse", "data-target":".sidebar-wrapper"}, [
@@ -102,7 +102,35 @@ const view = (ctrl) => {
         ),
         m('div.page-content-wrapper',
             m('div.row', m('div.col-lg-12', ctrl.contentCtrl ? ctrl.contentView(ctrl.contentCtrl) : ''))
-        )
+        ),
+        m('script', {src:'https://code.jquery.com/jquery-3.1.0.min.js'}),
+        m('script',`
+            var MouseWheelHandler = function(e) {
+                  e.preventDefault();
+                  e = window.event || e;
+                  console.log(2);
+                  var move = $('.sidebar-wrapper-menu').attr('data-moved') ? parseInt($('.sidebar-wrapper-menu').attr('data-moved')) : 0;
+                  
+                  moveMax = $('.sidebar-wrapper-menu').height() - $(window).height();
+                  if(Math.abs(move)<moveMax){move +=  -40}
+                  $('.sidebar-wrapper-menu').css({'transform':'translateY('+ move +'px)'}).attr('data-moved',move);
+            }
+            /*
+            refer to fullpage.js
+            github: https://github.com/alvarotrigo/fullPage.js
+            */
+            var addMouseWheelHandler = function() {
+              document.addEventListener("mousewheel", MouseWheelHandler, false); 
+              //IE9, Chrome, Safari, Oper
+            }
+            addMouseWheelHandler();
+            window.onload = function(){
+                $('.sidebar-wrapper').scroll(function(e){
+                    console.log('1');
+                });
+            }
+            
+        `)
     );
 }
 
