@@ -104,16 +104,46 @@ const view = (ctrl) => {
             m('div.row', m('div.col-lg-12', ctrl.contentCtrl ? ctrl.contentView(ctrl.contentCtrl) : ''))
         ),
         m('script', {src:'https://code.jquery.com/jquery-3.1.0.min.js'}),
-        m('script',`
+        m('script',m.trust(`
             var MouseWheelHandler = function(e) {
-                  e.preventDefault();
-                  e = window.event || e;
-                  console.log(2);
-                  var move = $('.sidebar-wrapper-menu').attr('data-moved') ? parseInt($('.sidebar-wrapper-menu').attr('data-moved')) : 0;
-                  
-                  moveMax = $('.sidebar-wrapper-menu').height() - $(window).height();
-                  if(Math.abs(move)<moveMax){move +=  -40}
-                  $('.sidebar-wrapper-menu').css({'transform':'translateY('+ move +'px)'}).attr('data-moved',move);
+                e.preventDefault();
+                e = window.event || e;
+                var direction = '';
+                if (e.wheelDelta) {  //判断浏览器IE，谷歌滑轮事件               
+                    if (e.wheelDelta > 0) { //当滑轮向上滚动时  
+                        console.log("up");
+                        direction = 'up';
+                    }  
+                    if (e.wheelDelta < 0) { //当滑轮向下滚动时  
+                        console.log("down");
+                        direction = 'down';
+                    }  
+                } else if (e.detail) {  //Firefox滑轮事件  
+                    if (e.detail> 0) { //当滑轮向上滚动时
+                        console.log("up");
+                        direction = 'up';
+                    }  
+                    if (e.detail< 0) { //当滑轮向下滚动时  
+                        console.log("down");
+                        direction = 'down';
+                    }  
+                }  
+                var move = $('.sidebar-wrapper-menu').attr('data-moved') ? parseInt($('.sidebar-wrapper-menu').attr('data-moved')) : 0;
+
+                moveMax = $('.sidebar-wrapper-menu').height() - $(window).height();
+                if(Math.abs(move)<moveMax && direction == 'down'){
+                    move +=  -5;
+                }else if(move<0 && direction == 'up'){
+                    move += 5;
+                }
+
+                if(move!= 0){
+                    $('.sidebar-logo').fadeOut();
+                }else{
+                    $('.sidebar-logo').fadeIn();
+                }
+                
+                $('.sidebar-wrapper-menu').css({'transform':'translateY('+ move +'px)', 'transition':'transform 1s ease-out'}).attr('data-moved',move);
             }
             /*
             refer to fullpage.js
@@ -130,7 +160,7 @@ const view = (ctrl) => {
                 });
             }
             
-        `)
+        `))
     );
 }
 

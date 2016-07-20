@@ -128,10 +128,12 @@
 
     .sidebar-logo{
         color: @navbar-inverse-link-active-color;
-        position: absolute;
         width: 100%;
         z-index: 999;
-        background-color: rgba(0,0,0,0.75);
+        &.scrolling{
+            background-color: rgba(0,0,0,0.75);
+            position: absolute;
+        }
     }
 
     .page-content-wrapper{
