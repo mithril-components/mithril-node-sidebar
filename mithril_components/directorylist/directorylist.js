@@ -10,10 +10,14 @@ const controller = (list) => {
 
 const view = (ctrl) => {
     // generate the page
-    // console.log(ctrl);
+    // console.log(ctrl.length);
     return m('div.col-md-12.mc-sidebar-dir', 
         ctrl.map(directoryCtrl => {
-            return directory.view(directoryCtrl);
+            var n = Math.floor(12/ Math.ceil(Math.sqrt(ctrl.length)));
+            // console.log(n);
+            return m('div.col-md-'+ n + '.menuicon.text-center',
+                directory.view(directoryCtrl)
+            )
         })
     )
     

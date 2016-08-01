@@ -90,7 +90,7 @@ const view = (ctrl) => {
             m('div.sidebar-logo',
                 m('h3.text-center', m('span', {"class": ctrl.logo, title: ctrl.title}), ctrl.title)
             ),
-            m('div.sidebar-wrapper', menulist.view(ctrl.menulistCtrl))
+            m('div.sidebar-wrapper-menu', menulist.view(ctrl.menulistCtrl))
         ),
         m('div.menu-toggle',
             m('button', {"class": "navbar-toggle collapsed", "type": "button", "data-toggle":"collapse", "data-target":".sidebar-wrapper"}, [
@@ -102,7 +102,65 @@ const view = (ctrl) => {
         ),
         m('div.page-content-wrapper',
             m('div.row', m('div.col-lg-12', ctrl.contentCtrl ? ctrl.contentView(ctrl.contentCtrl) : ''))
-        )
+        ),
+        m('script', {src:'https://code.jquery.com/jquery-3.1.0.min.js'}),
+        m('script',m.trust(`
+            var MouseWheelHandler = function(e) {
+                e.preventDefault();
+                e = window.event || e;
+                var direction = '';
+                if (e.wheelDelta) {  //判断浏览器IE，谷歌滑轮事件               
+                    if (e.wheelDelta > 0) { //当滑轮向上滚动时  
+                        console.log("up");
+                        direction = 'up';
+                    }  
+                    if (e.wheelDelta < 0) { //当滑轮向下滚动时  
+                        console.log("down");
+                        direction = 'down';
+                    }  
+                } else if (e.detail) {  //Firefox滑轮事件  
+                    if (e.detail> 0) { //当滑轮向上滚动时
+                        console.log("up");
+                        direction = 'up';
+                    }  
+                    if (e.detail< 0) { //当滑轮向下滚动时  
+                        console.log("down");
+                        direction = 'down';
+                    }  
+                }  
+                var move = $('.sidebar-wrapper-menu').attr('data-moved') ? parseInt($('.sidebar-wrapper-menu').attr('data-moved')) : 0;
+
+                moveMax = $('.sidebar-wrapper-menu').height() - $(window).height();
+                if(Math.abs(move)<moveMax && direction == 'down'){
+                    move +=  -5;
+                }else if(move<0 && direction == 'up'){
+                    move += 5;
+                }
+
+                if(move!= 0){
+                    $('.sidebar-logo').fadeOut();
+                }else{
+                    $('.sidebar-logo').fadeIn();
+                }
+                
+                $('.sidebar-wrapper-menu').css({'transform':'translateY('+ move +'px)', 'transition':'transform 1s ease-out'}).attr('data-moved',move);
+            }
+            /*
+            refer to fullpage.js
+            github: https://github.com/alvarotrigo/fullPage.js
+            */
+            var addMouseWheelHandler = function() {
+              document.addEventListener("mousewheel", MouseWheelHandler, false); 
+              //IE9, Chrome, Safari, Oper
+            }
+            addMouseWheelHandler();
+            window.onload = function(){
+                $('.sidebar-wrapper').scroll(function(e){
+                    console.log('1');
+                });
+            }
+            
+        `))
     );
 }
 
