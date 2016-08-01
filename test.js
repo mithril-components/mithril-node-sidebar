@@ -20,6 +20,78 @@ const menus = [
                     "label": "History",
                     "icon": "glyphicon glyphicon-th-list",
                     "href": "//keyword-staging.wpic-tools.com/histories"
+                },
+                {
+                    "label": "History",
+                    "icon": "glyphicon glyphicon-th-list",
+                    "href": "//keyword-staging.wpic-tools.com/histories"
+                },
+                {
+                    "label": "History",
+                    "icon": "glyphicon glyphicon-th-list",
+                    "href": "//keyword-staging.wpic-tools.com/histories"
+                },
+                {
+                    "label": "History",
+                    "icon": "glyphicon glyphicon-th-list",
+                    "href": "//keyword-staging.wpic-tools.com/histories"
+                },
+                {
+                    "label": "History",
+                    "icon": "glyphicon glyphicon-th-list",
+                    "href": "//keyword-staging.wpic-tools.com/histories"
+                },
+                {
+                    "label": "History",
+                    "icon": "glyphicon glyphicon-th-list",
+                    "href": "//keyword-staging.wpic-tools.com/histories"
+                },
+                {
+                    "label": "History",
+                    "icon": "glyphicon glyphicon-th-list",
+                    "href": "//keyword-staging.wpic-tools.com/histories"
+                }
+            ]
+        },
+        {
+            "label": "Squirrel",
+            "icon": "wpic wpic-squirrel",
+            "submenu": [
+                {
+                    "label": "Squirrel search",
+                    "icon": "wpic wpic-squirrel",
+                    "href": "//squirrel-search.wpic-tools.com/"
+                },
+                {
+                    "label": "Squirrel store",
+                    "icon": "wpic wpic-squirrel",
+                    "href": "//squirrel-store.wpic-tools.com/"
+                },
+                {
+                    "label": "Squirrel blog",
+                    "icon": "wpic wpic-squirrel",
+                    "href": "//squirrel-blog.wpic-tools.com/"
+                }
+            ]
+        },
+        {
+            "label": "Squirrel",
+            "icon": "wpic wpic-squirrel",
+            "submenu": [
+                {
+                    "label": "Squirrel search",
+                    "icon": "wpic wpic-squirrel",
+                    "href": "//squirrel-search.wpic-tools.com/"
+                },
+                {
+                    "label": "Squirrel store",
+                    "icon": "wpic wpic-squirrel",
+                    "href": "//squirrel-store.wpic-tools.com/"
+                },
+                {
+                    "label": "Squirrel blog",
+                    "icon": "wpic wpic-squirrel",
+                    "href": "//squirrel-blog.wpic-tools.com/"
                 }
             ]
         },
