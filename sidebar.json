@@ -63,12 +63,12 @@
                 {
                     "label": "Blocks",
                     "icon": "glyphicon glyphicon-eye-close",
-                    "href": "//discripto-staging.wpic-tools.com/actives"
+                    "href": "//discripto-staging.wpic-tools.com/blocks"
                 },
                 {
                     "label": "Statistics",
                     "icon": "glyphicon glyphicon-stats",
-                    "href": "//discripto-staging.wpic-tools.com/actives"
+                    "href": "//discripto-staging.wpic-tools.com/statistics"
                 }
             ]
         },
