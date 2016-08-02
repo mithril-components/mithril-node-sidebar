@@ -52,7 +52,7 @@
             "submenu": [
                 {
                     "label": "Scripts",
-                    "icons": "glyphicon glyphicon-cog",
+                    "icon": "glyphicon glyphicon-cog",
                     "href": "//discripto-staging.wpic-tools.com/scripts"
                 },
                 {
