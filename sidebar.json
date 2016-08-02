@@ -51,6 +51,11 @@
             "href": "//discripto-staging.wpic-tools.com",
             "submenu": [
                 {
+                    "label": "Scripts",
+                    "icons": "glyphicon glyphicon-cog",
+                    "href": "//discripto-staging.wpic-tools.com/scripts"
+                },
+                {
                     "label": "Tasks",
                     "icon": "glyphicon glyphicon-align-justify",
                     "href": "//discripto-staging.wpic-tools.com/tasks"
