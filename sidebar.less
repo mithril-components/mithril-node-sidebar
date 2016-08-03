@@ -23,7 +23,7 @@
         z-index: 1000;
         position: fixed;
         left: 250px;
-        width: 0;
+        width: 250px;
         height: 100%;
         margin-left: -250px;
         overflow: hidden;
@@ -32,8 +32,9 @@
         -moz-transition: width 0.5s ease;
         -o-transition: width 0.5s ease;
         transition: width 0.5s ease;
-        &.collapse{
-            @media (max-width: 768px){
+        @media (max-width: 768px){
+            width: 0;
+            &.collapse{
                 height: 100% !important;
                 display: block;
             }
@@ -139,32 +140,13 @@
     }
 
     .page-content-wrapper{
+        padding: 20px;
+        position: relative;
+        padding-left: 250px;
         @media (max-width: 768px){
             margin-top: 50px;
+            padding-left: 20px;
         }
     }
     
-}
-
-@media(min-width:768px){
-    .sidebar{
-        padding-left: 250px;
-        &.toggled{
-            padding-left:0;
-            .sidebar-wrapper{
-                width: 0;
-            }
-        }
-        .page-content-wrapper{
-            padding: 20px;
-            position: relative;
-        }
-        .sidebar-wrapper{
-            width: 250px;
-        }
-        &.toggled .page-content-wrapper{
-            position: relative;
-            margin-right: 0;
-        }
-    }
 }
