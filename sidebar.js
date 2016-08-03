@@ -80,12 +80,11 @@ const controller = (options) => {
             title: model.title
         }
 
-        // if )
     });
 }
 
 const view = (ctrl) => {
-    return m('div.container-fluid.sidebar',
+    return m('div.container-fluid.sidebar.hidden-print',
         m('div.sidebar-wrapper',
             m('div.sidebar-logo',
                 m('h3.text-center', m('span', {"class": ctrl.logo, title: ctrl.title}), ctrl.title)
@@ -106,7 +105,7 @@ const view = (ctrl) => {
         m('script', {src:'https://code.jquery.com/jquery-3.1.0.min.js'}),
         m('script',m.trust(`
             var MouseWheelHandler = function(e) {
-                e.preventDefault();
+                // e.preventDefault();
                 e = window.event || e;
                 var direction = '';
                 if (e.wheelDelta) {  //判断浏览器IE，谷歌滑轮事件               
@@ -128,22 +127,30 @@ const view = (ctrl) => {
                         direction = 'down';
                     }  
                 }  
-                var move = $('.sidebar-wrapper-menu').attr('data-moved') ? parseInt($('.sidebar-wrapper-menu').attr('data-moved')) : 0;
+                
+                menuScroll(direction);
+            }
 
+            var menuScroll = function(direction){
+                if($(".sidebar-wrapper").width() < 250){
+                    return false;
+                }
+                var move = $('.sidebar-wrapper-menu').attr('data-moved') ? parseInt($('.sidebar-wrapper-menu').attr('data-moved')) : 0;
                 moveMax = $('.sidebar-wrapper-menu').height() - $(window).height();
-                if(Math.abs(move)<moveMax && direction == 'down'){
+
+                if(Math.abs(move) < moveMax && direction == 'down'){
                     move +=  -5;
-                }else if(move<0 && direction == 'up'){
+                }else if(move < 0 && direction == 'up'){
                     move += 5;
                 }
-
-                if(move!= 0){
+                
+                if(move != 0){
                     $('.sidebar-logo').fadeOut();
                 }else{
                     $('.sidebar-logo').fadeIn();
                 }
                 
-                $('.sidebar-wrapper-menu').css({'transform':'translateY('+ move +'px)', 'transition':'transform 1s ease-out'}).attr('data-moved',move);
+                $('.sidebar-wrapper-menu').css({'transform':'translateY('+ move +'px)', 'transition':'transform 0s ease-out'}).attr('data-moved',move);
             }
             /*
             refer to fullpage.js
@@ -154,12 +161,55 @@ const view = (ctrl) => {
               //IE9, Chrome, Safari, Oper
             }
             addMouseWheelHandler();
-            window.onload = function(){
-                $('.sidebar-wrapper').scroll(function(e){
-                    console.log('1');
-                });
+            var startY = 0;
+            // touchMove
+            var touchMoveFunc = function(evt) {
+                try
+                {  
+                    evt.preventDefault(); //阻止触摸时浏览器的缩放、滚动条滚动等  
+                    var touch = evt.touches[0]; //获取第一个触点  
+                    // var x = Number(touch.pageX); //页面触点X坐标
+                    var y = Number(touch.pageY); //页面触点Y坐标  
+                    var direction = '';
+                    //判断滑动方向  
+                    if (y - startY > 0) {  
+                        // scroll dir = down;
+                        // alert(y);
+                        direction = 'down';
+                    }
+                    if (y - startY < 0) {
+                        // scroll dir = up;
+                        // alert(y);
+                        direction = 'up';
+                    }
+                    startY = y;
+                    menuScroll(direction);
+                }  
+                catch (e) {
+                    alert('touchMoveFunc：' + e.message);  
+                }  
             }
-            
+            var isTouchDevice = function() {  
+                try {  
+                    document.createEvent("TouchEvent");  
+                    console.log("支持TouchEvent事件！");  
+                    bindEvent(); //绑定事件  
+                }  
+                catch (e) {  
+                    console.log("不支持TouchEvent事件！" + e.message);  
+                }  
+            }
+            //绑定事件  
+            var bindEvent = function() {  
+                document.addEventListener('touchmove', touchMoveFunc, false);
+            }
+
+            window.onload = function(){
+                $(window).scroll(function(e){
+                    console.log($(this)[0].scrollHeight);
+                });
+                isTouchDevice();
+            }
         `))
     );
 }
