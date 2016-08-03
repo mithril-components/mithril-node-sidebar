@@ -84,8 +84,8 @@ const controller = (options) => {
 }
 
 const view = (ctrl) => {
-    return m('div.container-fluid.sidebar.hidden-print',
-        m('div.sidebar-wrapper',
+    return m('div.container-fluid.sidebar',
+        m('div.sidebar-wrapper.hidden-print',
             m('div.sidebar-logo',
                 m('h3.text-center', m('span', {"class": ctrl.logo, title: ctrl.title}), ctrl.title)
             ),

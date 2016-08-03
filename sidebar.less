@@ -142,10 +142,20 @@
     .page-content-wrapper{
         padding: 20px;
         position: relative;
-        padding-left: 250px;
         @media (max-width: 768px){
             margin-top: 50px;
-            padding-left: 20px;
+        }
+    }
+
+    .mc-sidebar-dir{
+        padding-left: 250px;
+        padding-top: 10%;
+        @media (max-width: 768px){
+            padding-left: 15px;
+        }
+        @media print and (max-width: 768px){
+            padding-left: 15px;
+            padding-top: 0;
         }
     }
     
