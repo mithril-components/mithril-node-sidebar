@@ -20,11 +20,18 @@ const controller = (options) => {
                     });
 
                     res.on('end', function(){
-                        const json = JSON.parse(body);
-                        resolve(json);
+                        try {
+                            const json = JSON.parse(body);
+                            resolve(json);
+                        }
+                        catch(e) {
+                            resolve({title:'',logo:'',menus:[]})
+                        }
+                        
                     });
                 }).on('error', function(err){
-                    reject(err);
+                    // reject(err);
+                    resolve({title:'',logo:'',menus:[]})
                 });
             });
         }

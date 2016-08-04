@@ -21,7 +21,7 @@ const controller = (data) => {
 const view = (ctrl) => {
     return m('li', (ctrl.active) ?  (ctrl.mainActive ? {"class": "active mainActive"} : {"class" : "active"}) : null,
         [
-            m('a', {href:ctrl.href}, m('span', {'class':ctrl.icon}), ctrl.label, m('span', {'class': 'badge'}, ctrl.status)),
+            m('a', {href:ctrl.href}, m('span', {'class':ctrl.icon}), ' ' + ctrl.label, m('span', {'class': 'badge'}, ctrl.status)),
             ' ',
             m('ul.submenus.nav.nav.navbar-inverse.nav-stacked', ctrl.submenuCtrls.map(s => {
                 return m('li', (s.active) ?  (s.mainActive ? {"class": "active mainActive"} : {"class" : "active"}) : null,
