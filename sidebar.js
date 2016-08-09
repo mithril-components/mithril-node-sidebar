@@ -117,20 +117,20 @@ const view = (ctrl) => {
                 var direction = '';
                 if (e.wheelDelta) {  //判断浏览器IE，谷歌滑轮事件               
                     if (e.wheelDelta > 0) { //当滑轮向上滚动时  
-                        console.log("up");
+                        // console.log("up");
                         direction = 'up';
                     }  
                     if (e.wheelDelta < 0) { //当滑轮向下滚动时  
-                        console.log("down");
+                        // console.log("down");
                         direction = 'down';
                     }  
                 } else if (e.detail) {  //Firefox滑轮事件  
-                    if (e.detail> 0) { //当滑轮向上滚动时
-                        console.log("up");
+                    if (e.detail > 0) { //当滑轮向上滚动时
+                        // console.log("up");
                         direction = 'up';
                     }  
-                    if (e.detail< 0) { //当滑轮向下滚动时  
-                        console.log("down");
+                    if (e.detail < 0) { //当滑轮向下滚动时  
+                        // console.log("down");
                         direction = 'down';
                     }  
                 }  
