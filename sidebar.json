@@ -1,0 +1,96 @@
+{
+    "title": "WPIC Dashboard",
+    "logo": "wpic wpic-logo",
+    "menus":[
+        {
+            "label": "Keyword tools",
+            "icon": "wpic wpic-keyword-tools",
+            "href": "//keyword-staging.wpic-tools.com",
+            "submenu": [
+                {
+                    "label": "Search",
+                    "icon": "glyphicon glyphicon-search",
+                    "href": "//keyword-staging.wpic-tools.com/search"
+                },
+                {
+                    "label": "History",
+                    "icon": "glyphicon glyphicon-th-list",
+                    "href": "//keyword-staging.wpic-tools.com/histories"
+                }
+            ]
+        },
+        {
+            "label": "Squirrel",
+            "icon": "wpic wpic-squirrel",
+            "submenu": [
+                {
+                    "label": "Squirrel search",
+                    "icon": "wpic wpic-squirrel",
+                    "href": "//squirrel-search.wpic-tools.com/"
+                },
+                {
+                    "label": "Squirrel store",
+                    "icon": "wpic wpic-squirrel",
+                    "href": "//squirrel-store.wpic-tools.com/"
+                },
+                {
+                    "label": "Squirrel blog",
+                    "icon": "wpic wpic-squirrel",
+                    "href": "//squirrel-blog.wpic-tools.com/"
+                }
+            ]
+        },
+        {
+            "label": "Web monitor",
+            "icon": "wpic wpic-web-monitor",
+            "href": "//monitor-staging.wpic-tools.com"
+        },
+        {
+            "label": "Discripto",
+            "icon": "wpic wpic-discripto",
+            "href": "//discripto-staging.wpic-tools.com",
+            "submenu": [
+                {
+                    "label": "Scripts",
+                    "icon": "glyphicon glyphicon-cog",
+                    "href": "//discripto-staging.wpic-tools.com/scripts"
+                },
+                {
+                    "label": "Tasks",
+                    "icon": "glyphicon glyphicon-align-justify",
+                    "href": "//discripto-staging.wpic-tools.com/tasks"
+                },
+                {
+                    "label": "Actives",
+                    "icon": "glyphicon glyphicon-play",
+                    "href": "//discripto-staging.wpic-tools.com/actives"
+                },
+                {
+                    "label": "Blocks",
+                    "icon": "glyphicon glyphicon-eye-close",
+                    "href": "//discripto-staging.wpic-tools.com/blocks"
+                },
+                {
+                    "label": "Statistics",
+                    "icon": "glyphicon glyphicon-stats",
+                    "href": "//discripto-staging.wpic-tools.com/statistics"
+                }
+            ]
+        },
+        {
+            "label": "Image center",
+            "icon": "wpic wpic-discripto",
+            "href": "//image-staging.wpic-tools.com"
+        },
+        {
+            "label": "VPS manager",
+            "icon": "wpic wpic-vps-manager",
+            "href": "//vps-staging.wpic-tools.com"
+        },
+        {
+            "label": "Keyword search",
+            "icon": "wpic wpic-vps-manager",
+            "href": "//vps-staging.wpic-tools.com"
+        }
+    ]
+}
