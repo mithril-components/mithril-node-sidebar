@@ -16,12 +16,8 @@
     &.container-fluid{
         position: absolute;
         left: 0;
-        // padding-left: 15px;
+        padding-left: 15px;
         padding-right: 15px;
-        padding-left: 250px;
-        @media (max-width: 768px){
-            padding-left: 15px;
-        }
     }
     .sidebar-wrapper{
         z-index: 1000;
@@ -146,8 +142,10 @@
     .page-content-wrapper{
         padding: 20px;
         position: relative;
+        padding-left: 250px;
         @media (max-width: 768px){
             margin-top: 50px;
+            padding-left: 20px;
         }
     }
 
@@ -163,4 +161,16 @@
         }
     }
     
+}
+[dir="rtl"]{
+    .sidebar-wrapper{
+        right:0;
+    }
+    .page-content-wrapper{
+        padding-left: 20px;
+        padding-right: 250px
+        @media (max-width: 768px){
+            padding-right: 20px;
+        }
+    }
 }
