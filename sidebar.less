@@ -1,6 +1,6 @@
 // TODO: Add custom class if it's required. You can use bootstrap variables and mixins
 
-.sidebar{
+.mc-sidebar{
     padding: 0;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -19,7 +19,7 @@
         padding-left: 15px;
         padding-right: 15px;
     }
-    .sidebar-wrapper{
+    .mc-sidebar-wrapper{
         z-index: 1000;
         position: fixed;
         left: 250px;
@@ -44,7 +44,7 @@
         }
     }
 
-    .sidebar-nav {
+    .mc-sidebar-nav {
         width: 100%;
         margin: 0;
         padding: 0;
@@ -129,7 +129,7 @@
         }
     }
 
-    .sidebar-logo{
+    .mc-sidebar-logo{
         color: @navbar-inverse-link-active-color;
         width: 100%;
         z-index: 999;
@@ -162,9 +162,19 @@
     }
     
 }
-[dir="rtl"]{
-    .sidebar-wrapper{
-        right:0;
+.mc-sidebar.mc-sidebar-rtl{
+    direction: rtl;
+    .mc-sidebar-wrapper{
+        right:250px;
+        margin-right:-250px;
+        margin-left:0;
+        left:auto;
+    }
+    .menu-toggle{
+        left:5px;
+        .navbar-toggle{
+            float: left;
+        }
     }
     .page-content-wrapper{
         padding-left: 20px;

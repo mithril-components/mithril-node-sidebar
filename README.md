@@ -61,3 +61,8 @@ Setup [mithril-component-tools](https://github.com/mithril-components/mitthril-c
 
     npm install
     mct test sidebar.js en
+
+
+Write direction
+---------------
+    $ export dir=rtl
