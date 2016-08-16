@@ -6,6 +6,7 @@ const menu = require('./mithril_components/menu/menu');
 const menulist = require('./mithril_components/menulist/menulist');
 const directorylist = require('./mithril_components/directorylist/directorylist')
 
+const direction = process.env.dir;// ltr or rtl;
 
 const controller = (options) => {
     let modelPromise;
@@ -91,15 +92,15 @@ const controller = (options) => {
 }
 
 const view = (ctrl) => {
-    return m('div.container-fluid.sidebar',
-        m('div.sidebar-wrapper.hidden-print',
-            m('div.sidebar-logo',
+    return m((direction == 'ltr') ? 'div.container-fluid.mc-sidebar' : 'div.container-fluid.mc-sidebar.mc-sidebar-rtl',
+        m('div.mc-sidebar-wrapper.hidden-print',
+            m('div.mc-sidebar-logo',
                 m('h3.text-center', m('span', {"class": ctrl.logo, title: ctrl.title}), ctrl.title)
             ),
-            m('div.sidebar-wrapper-menu', menulist.view(ctrl.menulistCtrl))
+            m('div.mc-sidebar-wrapper-menu', menulist.view(ctrl.menulistCtrl))
         ),
         m('div.menu-toggle',
-            m('button', {"class": "navbar-toggle collapsed", "type": "button", "data-toggle":"collapse", "data-target":".sidebar-wrapper"}, [
+            m('button', {"class": "navbar-toggle collapsed", "type": "button", "data-toggle":"collapse", "data-target":".mc-sidebar-wrapper"}, [
                 m('span', {"class": 'sr-only'}, 'Toggle navigation'),
                 m('span.icon-bar'),
                 m('span.icon-bar'),
@@ -115,21 +116,21 @@ const view = (ctrl) => {
                 // e.preventDefault();
                 e = window.event || e;
                 var direction = '';
-                if (e.wheelDelta) {  //判断浏览器IE，谷歌滑轮事件               
-                    if (e.wheelDelta > 0) { //当滑轮向上滚动时  
+                if (e.wheelDelta) {  //IE,chrome mouse wheel               
+                    if (e.wheelDelta > 0) { //mouse wheel up
                         // console.log("up");
                         direction = 'up';
                     }  
-                    if (e.wheelDelta < 0) { //当滑轮向下滚动时  
+                    if (e.wheelDelta < 0) { //mouse wheel down
                         // console.log("down");
                         direction = 'down';
                     }  
-                } else if (e.detail) {  //Firefox滑轮事件  
-                    if (e.detail > 0) { //当滑轮向上滚动时
+                } else if (e.detail) {  //Firefox mouse wheel 
+                    if (e.detail > 0) { //mouse wheel up
                         // console.log("up");
                         direction = 'up';
                     }  
-                    if (e.detail < 0) { //当滑轮向下滚动时  
+                    if (e.detail < 0) { //mouse wheel down  
                         // console.log("down");
                         direction = 'down';
                     }  
@@ -139,11 +140,11 @@ const view = (ctrl) => {
             }
 
             var menuScroll = function(direction){
-                if($(".sidebar-wrapper").width() < 250){
+                if($(".mc-sidebar-wrapper").width() < 250){
                     return false;
                 }
-                var move = $('.sidebar-wrapper-menu').attr('data-moved') ? parseInt($('.sidebar-wrapper-menu').attr('data-moved')) : 0;
-                moveMax = $('.sidebar-wrapper-menu').height() - $(window).height();
+                var move = $('.mc-sidebar-wrapper-menu').attr('data-moved') ? parseInt($('.mc-sidebar-wrapper-menu').attr('data-moved')) : 0;
+                moveMax = $('.mc-sidebar-wrapper-menu').height() - $(window).height();
 
                 if(Math.abs(move) < moveMax && direction == 'down'){
                     move +=  -5;
@@ -152,12 +153,12 @@ const view = (ctrl) => {
                 }
                 
                 if(move != 0){
-                    $('.sidebar-logo').fadeOut();
+                    $('.mc-sidebar-logo').fadeOut();
                 }else{
-                    $('.sidebar-logo').fadeIn();
+                    $('.mc-sidebar-logo').fadeIn();
                 }
                 
-                $('.sidebar-wrapper-menu').css({'transform':'translateY('+ move +'px)', 'transition':'transform 0s ease-out'}).attr('data-moved',move);
+                $('.mc-sidebar-wrapper-menu').css({'transform':'translateY('+ move +'px)', 'transition':'transform 0s ease-out'}).attr('data-moved',move);
             }
             /*
             refer to fullpage.js
@@ -172,13 +173,13 @@ const view = (ctrl) => {
             // touchMove
             var touchMoveFunc = function(evt) {
                 try
-                {
-                    evt.preventDefault(); //阻止触摸时浏览器的缩放、滚动条滚动等  
-                    var touch = evt.touches[0]; //获取第一个触点  
-                    // var x = Number(touch.pageX); //页面触点X坐标
-                    var y = Number(touch.pageY); //页面触点Y坐标  
+                {  
+                    evt.preventDefault();   
+                    var touch = evt.touches[0]; //get the first point  
+                    // var x = Number(touch.pageX); 
+                    var y = Number(touch.pageY);
                     var direction = '';
-                    //判断滑动方向  
+                    //scroll direction  
                     if (y - startY > 0) {  
                         // scroll dir = down;
                         // alert(y);
@@ -199,11 +200,11 @@ const view = (ctrl) => {
             var isTouchDevice = function() {  
                 try {  
                     document.createEvent("TouchEvent");  
-                    console.log("支持TouchEvent事件！");  
-                    bindEvent(); //绑定事件  
+                    console.log("TouchEvent is supported！");  
+                    bindEvent();
                 }  
                 catch (e) {  
-                    console.log("不支持TouchEvent事件！" + e.message);  
+                    console.log("TouchEvent isn't supported！" + e.message);  
                 }  
             }
             //绑定事件  
