@@ -207,7 +207,7 @@ const view = (ctrl) => {
                     console.log("TouchEvent isn't supported！" + e.message);  
                 }  
             }
-            //绑定事件  
+  
             var bindEvent = function() {  
                 document.addEventListener('touchmove', touchMoveFunc, false);
             }
