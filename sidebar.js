@@ -92,7 +92,7 @@ const controller = (options) => {
 }
 
 const view = (ctrl) => {
-    return m((direction == 'ltr') ? 'div.container-fluid.mc-sidebar' : 'div.container-fluid.mc-sidebar.mc-sidebar-rtl',
+    return m((direction == 'rtl') ? 'div.container-fluid.mc-sidebar.mc-sidebar-rtl' : 'div.container-fluid.mc-sidebar',
         m('div.mc-sidebar-wrapper.hidden-print',
             m('div.mc-sidebar-logo',
                 m('h3.text-center', m('span', {"class": ctrl.logo, title: ctrl.title}), ctrl.title)
