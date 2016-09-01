@@ -126,12 +126,13 @@ const view = (ctrl) => {
                         direction = 'down';
                     }  
                 } else if (e.detail) {  //Firefox mouse wheel 
-                    if (e.detail > 0) { //mouse wheel up
-                        // console.log("up");
+                    console.log(e.detail);
+                    if (e.detail < 0) { //mouse wheel up
+                        console.log("up");
                         direction = 'up';
                     }  
-                    if (e.detail < 0) { //mouse wheel down  
-                        // console.log("down");
+                    if (e.detail > 0) { //mouse wheel down  
+                        console.log("down");
                         direction = 'down';
                     }  
                 }  
@@ -165,7 +166,8 @@ const view = (ctrl) => {
             github: https://github.com/alvarotrigo/fullPage.js
             */
             var addMouseWheelHandler = function() {
-              document.addEventListener("mousewheel", MouseWheelHandler, false); 
+              document.addEventListener("mousewheel", MouseWheelHandler, false);
+              document.addEventListener("DOMMouseScroll", MouseWheelHandler, false);
               //IE9, Chrome, Safari, Oper
             }
             addMouseWheelHandler();
@@ -213,9 +215,6 @@ const view = (ctrl) => {
             }
 
             window.onload = function(){
-                $(window).scroll(function(e){
-                    console.log($(this)[0].scrollHeight);
-                });
                 isTouchDevice();
             }
         `))
