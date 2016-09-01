@@ -161,10 +161,7 @@ const view = (ctrl) => {
                 
                 $('.mc-sidebar-wrapper-menu').css({'transform':'translateY('+ move +'px)', 'transition':'transform 0s ease-out'}).attr('data-moved',move);
             }
-            /*
-            refer to fullpage.js
-            github: https://github.com/alvarotrigo/fullPage.js
-            */
+            
             var addMouseWheelHandler = function() {
               document.addEventListener("mousewheel", MouseWheelHandler, false);
               document.addEventListener("DOMMouseScroll", MouseWheelHandler, false);
@@ -176,18 +173,18 @@ const view = (ctrl) => {
             var touchMoveFunc = function(evt) {
                 try
                 {  
-                    evt.preventDefault();   
+                    // evt.preventDefault();
                     var touch = evt.touches[0]; //get the first point  
                     // var x = Number(touch.pageX); 
                     var y = Number(touch.pageY);
                     var direction = '';
                     //scroll direction  
-                    if (y - startY > 0) {  
+                    if (y - startY < 0) {
                         // scroll dir = down;
                         // alert(y);
                         direction = 'down';
                     }
-                    if (y - startY < 0) {
+                    if (y - startY > 0) {
                         // scroll dir = up;
                         // alert(y);
                         direction = 'up';
@@ -199,7 +196,7 @@ const view = (ctrl) => {
                     alert('touchMoveFunc：' + e.message);  
                 }  
             }
-            var isTouchDevice = function() {  
+            var isTouchDevice = function() {
                 try {  
                     document.createEvent("TouchEvent");  
                     console.log("TouchEvent is supported！");  
@@ -210,7 +207,7 @@ const view = (ctrl) => {
                 }  
             }
   
-            var bindEvent = function() {  
+            var bindEvent = function() {
                 document.addEventListener('touchmove', touchMoveFunc, false);
             }
 
