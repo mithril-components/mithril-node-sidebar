@@ -107,10 +107,10 @@ const view = (ctrl) => {
                 m('span.icon-bar')
             ])
         ),
+        m('script', {src:'https://code.jquery.com/jquery-3.1.0.min.js'}),
         m('div.page-content-wrapper',
             m('div.row', m('div.col-lg-12', ctrl.contentCtrl ? ctrl.contentView(ctrl.contentCtrl) : ''))
         ),
-        m('script', {src:'https://code.jquery.com/jquery-3.1.0.min.js'}),
         m('script',m.trust(`
             var MouseWheelHandler = function(e) {
                 // e.preventDefault();
